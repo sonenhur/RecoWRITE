@@ -35,6 +35,7 @@ export default function Nav() {
                     <button className='p-4 mr-4 font-bold hover:bg-[#f9e000] hover:text-[#371d1e]' onClick={kakaologin}>카카오 로그인</button>
                     <button className='p-4 mr-4 font-bold hover:bg-[#2db400]' onClick={naverlogin}>네이버 로그인</button>
                     <Link to="/" className="px-4"></Link>
+                    <Link to="/" className="px-4"></Link>
                 </div>
             </nav>
         </div>
