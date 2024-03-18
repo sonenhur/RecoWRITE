@@ -7,6 +7,8 @@ import Home from './Home';
 import Reco from './Reco';
 import Print from './Print';
 import Loading from './Loading';
+import UploadGara from './UploadGara'
+import PrintGara from './PrintGara'
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route path='/Reco' element={<Reco />} />
             <Route path='/Print' element={<Print />} />
             <Route path='/Loading' element={<Loading />} />
+            <Route path='/UploadGara' element={<UploadGara />} />
+            <Route path='/PrintGara' element={<PrintGara />} />
           </Routes>       
         </div>
       </RecoilRoot>

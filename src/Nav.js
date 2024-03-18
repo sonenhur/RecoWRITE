@@ -30,7 +30,7 @@ export default function Nav() {
             <nav className='w-2/3 m-auto flex justify-between sm:w-5/6'>
                 <Link to="/"><img src={logo} className='py-2 object-contain'/></Link>
                 <div className='flex justify-end items-center'>
-                    <Link to="/Reco" className={linkClass}>영수증 인식</Link>
+                    <Link to="/UploadGara" className={linkClass}>영수증 인식</Link>
                     <Link to="/" className={linkClass}>영수증 조회</Link>
                     <button className='p-4 mr-4 font-bold hover:bg-[#f9e000] hover:text-[#371d1e]' onClick={kakaologin}>카카오 로그인</button>
                     <button className='p-4 mr-4 font-bold hover:bg-[#2db400]' onClick={naverlogin}>네이버 로그인</button>
