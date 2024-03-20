@@ -2,13 +2,15 @@ import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDropzone } from 'react-dropzone';
 import { FaDropbox } from "react-icons/fa6";
+import { receiveData } from './atom';
+import { useSetRecoilState } from 'recoil';
 
 const ImageUpload = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileName, setFileName] = useState('');
     const [fileAttach, setFileAttach] = useState(false);
     const [preveiewUrl, setPreveiewUrl] = useState(null);
-    const [resData, setResData] = useState(null);
+    const setReceiveData = useSetRecoilState(receiveData);
 
     const navigate = useNavigate();
 
@@ -37,11 +39,12 @@ const ImageUpload = () => {
             return;
         }
 
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+
         try {
-            
-            // const formData = new FormData
-            // formData.append('file', selectedFile);
-            const response = await fetch('http://10.125.121.183:8080/upload', {
+            navigate("/Loading");
+            const response = await fetch('http://10.125.121.183:8080/image/upload', {
                 method: 'POST',
                 body: formData,
             });
@@ -50,21 +53,18 @@ const ImageUpload = () => {
                 throw new Error('Network response was not ok');
             }
 
-            const data = await response.text();
-
-            setResData(data);
-            navigate("/Loading");
-
+            const data = await response.json();
+            setReceiveData(data);
             // console.log('업로드 성공:', data);
-            // navigate("/PrintGara")
-            // alert('업로드 성공');
-            // setSelectedFile(null);
-            // setFileName('');
+            navigate("/PrintGara")
+            alert('업로드 성공');
+            setSelectedFile(null);
+            setFileName('');
             // fileInputRef.current.value = '';
 
         } catch (error) {
             console.error('업로드 실패:', error);
-            // navigate("/Reco")
+            navigate("/UploadGara")
             alert('업로드 실패');
         }
     };

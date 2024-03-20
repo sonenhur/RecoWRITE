@@ -7,12 +7,13 @@ function Redirection() {
     const location = useLocation();
     const CODE = location.search.split('=')[1];
 
-    const kakao_key = process.env.KAKAO_API_KEY; 
-    const kakao_uri = process.env.KAKAO_REDIRECT_URI;
+    // const kakao_key = process.env.KAKAO_API_KEY; 
+    // const kakao_uri = process.env.KAKAO_REDIRECT_URI;
 
+    console.log("aaaaaa");
     function getKakaoToken() {
-        fetch("http://10.125.121.183:8080/oauth2/kakao", {
-            method: "POST",
+        fetch("http://10.125.121.183:8080/oauth2/authorization/kakao", {
+            method: "GET",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
@@ -21,8 +22,9 @@ function Redirection() {
 
             .then(res => res.json())
             .then(data => {
+            console.log("aa", data);
                 if (data.access_token) {
-                    fetch("http://10.125.121.183:8080/oauth2/kakao", {
+                    fetch("http://10.125.121.183:8080/login/oauth2/code/kakao", {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json;charset=utf-8' },
                         body: JSON.stringify({
@@ -30,20 +32,25 @@ function Redirection() {
                             nickname: '',
                         }),
                     })
-                        .then(response => response.json())
+                        .then(response => {
+                            console.log("ss", response);
+                            response.json()
+                        })
                         .then(result => {
+                            console.log("asd", result);
                             if (result.token) {
                                 localStorage.setItem('TOKEN', result.token);
                                 localStorage.setItem('username', result.nickname);
                                 alert("로그인 성공!");
-                                navigate("/Home")
+                                navigate("/")
                             }
                         });
                 } else {
                     alert("다시 한번 로그인 해주세요");
-                    navigate("/Kakao")
+                    navigate("/Check")
                 }
-            });
+            
+            );
     }
     useEffect(() => {
         getKakaoToken();
