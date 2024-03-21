@@ -12,20 +12,20 @@ function Redirection() {
 
     console.log("aaaaaa");
     function getKakaoToken() {
-        fetch("http://10.125.121.183:8080/oauth2/authorization/kakao", {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-            },
-            body: `grant_type=authorization_code&client_id=${kakao_key}&redirect_uri=${kakao_uri}&code=${CODE}`,
-        })
+        // fetch("http://10.125.121.183:8080/oauth2/authorization/kakao", {
+        //     method: "GET",
+        //     headers: {
+        //         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+        //     },
+        //     body: `grant_type=authorization_code&client_id=${kakao_key}&redirect_uri=${kakao_uri}&code=${CODE}`,
+        // })
 
-            .then(res => res.json())
-            .then(data => {
+        //     .then(res => res.json())
+        //     .then(data => {
             console.log("aa", data);
                 if (data.access_token) {
                     fetch("http://10.125.121.183:8080/login/oauth2/code/kakao", {
-                        method: 'POST',
+                        method: 'GET',
                         headers: { 'Content-Type': 'application/json;charset=utf-8' },
                         body: JSON.stringify({
                             kakaoAccessToken: data.access_token,
@@ -50,7 +50,7 @@ function Redirection() {
                     navigate("/Check")
                 }
             
-            );
+            // );
     }
     useEffect(() => {
         getKakaoToken();

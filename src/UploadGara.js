@@ -55,12 +55,10 @@ const ImageUpload = () => {
 
             const data = await response.json();
             setReceiveData(data);
-            // console.log('업로드 성공:', data);
             navigate("/PrintGara")
             alert('업로드 성공');
             setSelectedFile(null);
             setFileName('');
-            // fileInputRef.current.value = '';
 
         } catch (error) {
             console.error('업로드 실패:', error);
