@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDropzone } from 'react-dropzone';
 import { FaDropbox } from "react-icons/fa6";
 import { receiveData } from './atom';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { userToken } from './atom';
 
 const ImageUpload = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -11,6 +12,7 @@ const ImageUpload = () => {
     const [fileAttach, setFileAttach] = useState(false);
     const [preveiewUrl, setPreveiewUrl] = useState(null);
     const setReceiveData = useSetRecoilState(receiveData);
+    const token = useRecoilValue(userToken);
 
     const navigate = useNavigate();
 
@@ -38,6 +40,11 @@ const ImageUpload = () => {
             alert('영수증을 먼저 첨부해 주세요')
             return;
         }
+        if(!token){
+            alert('로그인 후 사용가능 합니다');
+            navigate("/Login");
+            return;
+        }
 
         const formData = new FormData();
         formData.append('file', selectedFile);
@@ -46,12 +53,9 @@ const ImageUpload = () => {
             navigate("/Loading");
             const response = await fetch('http://10.125.121.183:8080/image/upload', {
                 method: 'POST',
+                headers: {Authorization: token},
                 body: formData,
             });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
 
             const data = await response.json();
             setReceiveData(data);

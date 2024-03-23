@@ -54,22 +54,20 @@ export default function Register() {
         .then(response => {
             console.log("res", response);
             console.log("resdd", response.status);
+
+            if (response.status === 409) {
+                alert("중복된 email 입니다");
+            }else if (response.status === undefined) {
+                alert("undefined");
+            } else {
+                alert("사용가능한 email 입니다");
+            }
             if (!response.ok) {
                 throw new Error('Failed to check email duplication');
             }
             return response.json();
         })
-        .then(data => {
-            console.log("ㄴㄴ",data); // 서버로부터 받은 데이터 확인
-    
-            if (data.response.status === 409) {
-                alert("중복된 email 입니다");
-            } else if (data.response.status === undefined) {
-                alert("undefined");
-            } else {
-                alert("사용가능한 email 입니다");
-            }
-        })
+       
         .catch(error => {
             console.error(error);
         })

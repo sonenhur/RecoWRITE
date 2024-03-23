@@ -8,7 +8,7 @@ export default function Check() {
                     <div className='my-10 flex flex-col w-3/4 mx-auto'>
                         <div className='border-2 border-[#1454fb] bg-[#1454fb] rounded-md flex justify-between items-center'>
                             <h1 className='text-white ml-5'>상세 검색</h1>
-                            <button type="button" className='px-10 bg-white text-[#1454fb] font-bold rounded-md py-1 border-2 border-[#1454FB] hover:bg-[#1454fb] hover:text-white'>검색</button>
+                            <button type="button" className='px-10 bg-white text-[#1454fb] font-bold rounded-md py-1 border-2 border-[#1454FB] hover:bg-[#1454fb] hover:border-white hover:text-white'>검색</button>
                         </div>
                         <div className='mt-5 flex justify-between'>
                             <div className='flex w-1/5 justify-around'>
