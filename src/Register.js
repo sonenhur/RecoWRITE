@@ -11,14 +11,14 @@ export default function Register() {
         email: '',
         password: '',
         confrim: '',
-        company: '',
+        groups: '',
         name: ''
     });
 
     const emailRef = useRef();
     const passRef = useRef();
     const confrimRef = useRef();
-    const comRef = useRef();
+    const groupRef = useRef();
     const nameRef = useRef();
 
     const instyle = 'outline-none p-2 border-2 rounded-md border-slate-200';
@@ -53,7 +53,6 @@ export default function Register() {
         })
         .then(response => {
             console.log("res", response);
-            console.log("resdd", response.status);
 
             if (response.status === 409) {
                 alert("중복된 email 입니다");
@@ -86,7 +85,7 @@ export default function Register() {
             email: emailRef.current.value,
             password: passRef.current.value,
             confirm: confrimRef.current.value,
-            company: comRef.current.value,
+            groups: groupRef.current.value,
             name: nameRef.current.value
         })
     }
@@ -97,7 +96,7 @@ export default function Register() {
             return alert('비밀번호와 비밀번호 확인이 같지 않습니다');
         }
     
-        if (join.email === "" || join.password === "" || join.confirm === "" || join.company === "" || join.name === "") {
+        if (join.email === "" || join.password === "" || join.confirm === "" || join.groups === "" || join.name === "") {
             alert("정보를 입력해주세요");
             return;
         } else {
@@ -116,6 +115,7 @@ export default function Register() {
                     }
     
                     console.log("회원가입 성공");
+                    console.log("ㄴㄴㄴ", join.groups);
                     alert("회원가입을 축하드립니다");
                     navigate("/Login");
                 } catch (error) {
@@ -154,7 +154,7 @@ export default function Register() {
 
                     <label className="py-1 mt-5 text-slate-600">회사명</label>
                     <input type="text"
-                        ref={comRef}
+                        ref={groupRef}
                         className={instyle} placeholder="회사명을 입력해 주세요" required />
                     <label className="py-1 text-slate-600">이름</label>
                     <input type="text"
