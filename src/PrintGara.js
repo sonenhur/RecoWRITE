@@ -100,7 +100,7 @@ export default function Print() {
                                     <div className='bg-[#1454fb] text-white w-2/5 py-1 flex items-center rounded-lg shadow-md justify-evenly'>
                                         거래일
                                         <div className='bg-white text-black w-2/3 text-center rounded-lg'>
-                                            <input type="text" defaultValue={rd.content.body.tradeAt} ref={tradeAtRef} className="w-full text-center rounded-lg" />
+                                            <input type="date" defaultValue={rd.content.body.tradeAt} ref={tradeAtRef} className="w-full text-center rounded-lg" />
                                         </div>
                                     </div>
                                     <div className='bg-[#1454fb] text-white w-2/5 py-1 flex items-center rounded-lg shadow-md justify-evenly'>
