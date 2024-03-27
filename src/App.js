@@ -10,8 +10,7 @@ import Loading from './Loading';
 import Check from './Check';
 import Login from './Login';
 import Register from './Register';
-import UploadGara from './UploadGara'
-import PrintGara from './PrintGara'
+import Detail from './Detail';
 
 function App() {
   return (
@@ -27,8 +26,7 @@ function App() {
             <Route path='/Check' element={<Check />} />
             <Route path='/Login' element={<Login />} />
             <Route path='/Register' element={<Register />} />
-            <Route path='/UploadGara' element={<UploadGara />} />
-            <Route path='/PrintGara' element={<PrintGara />} />
+            <Route path="/receipt/:receiptId" element={<Detail />} />
           </Routes>       
         </div>
       </RecoilRoot>
