@@ -7,8 +7,8 @@ import mockup from '../src/assets/images/mockup.png'
 export default function Home() {
     return (
         <main>
-            <img src={main} className='w-full' />
-            <div className='w-2/3 mx-auto'>
+            <img src={main} className='w-screen' />
+            {/* <div className='w-2/3 mx-auto'>
                 <h1 className='mt-28 pb-1 text-[#1454FB] font-extrabold text-xl'>업로드</h1>
                 <h2 className='py-1 text-4xl font-bold'>수기 영수증</h2>
                 <h2 className='py-1 text-4xl font-bold'>간편하게 업로드만</h2>
@@ -101,7 +101,7 @@ export default function Home() {
             </div>
             <div className='w-2/3 mx-auto py-10'>
 
-            </div>
+            </div> */}
         </main>
     )
 }

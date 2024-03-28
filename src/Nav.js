@@ -12,13 +12,14 @@ export default function Nav() {
     const Islogin = useRecoilValue(userToken)
     const navigate = useNavigate();
 
-    const navClass = location.pathname === '/'
-        ? 'w-full flex justify-center absolute top-0 text-white bg-gray-950/80'
-        : 'w-full flex justify-center text-white bg-gray-950/80';
+    // const navClass = location.pathname === '/'
+    //     ? 'w-full flex justify-center absolute top-0 text-white bg-gray-950/80'
+    //     : 'w-full flex justify-center text-white bg-gray-950/80';
+
     const linkClass = 'p-4 mr-4 font-bold hover:bg-[#1454FB]';
 
     return (
-        <main className={navClass}>
+        <main className='z-20 w-full flex justify-center absolute top-0 text-white bg-gray-950/80'>
             <nav className='w-2/3 m-auto flex justify-between'>
                 <Link to="/"><img src={logo} className='py-2 object-contain'/></Link>
                 <div className='flex justify-end items-center'>

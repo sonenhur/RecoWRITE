@@ -72,7 +72,7 @@ export default function Login() {
     
 
     return (
-        <main className="flex-col mt-40">
+        <main className="flex-col pt-40">
             <div className='w-1/5 border-2 mx-auto rounded-lg border-slate-300'>
                 <form className='flex flex-col p-4'>
                     <div className='flex flex-col'>

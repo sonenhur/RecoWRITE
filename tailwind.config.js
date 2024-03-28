@@ -8,7 +8,11 @@ module.exports = {
       sm:{ min: "700px", max: "819px"},
       md:{ min: "820px", max: "1080px"}
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'main': "url('./assets/images/main.png')"
+      }
+    },
   },
   plugins: [],
 }
