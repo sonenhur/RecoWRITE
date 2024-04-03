@@ -39,7 +39,7 @@ export default function Check() {
             });
             const data = await response.json();
             setData(data);
-            setFilterData(data.content.content); // 수정: content.content로 직접 설정
+            setFilterData(data.content.content);
         } catch (error) {
             console.error(error);
         }
@@ -94,58 +94,60 @@ export default function Check() {
     };
 
     return (
-        <main className='bg-main bg-cover h-screen relative'>
-            <div className='absolute w-full h-full bg-black opacity-30'></div>
-            <div className='relative z-10 flex flex-col items-center'>
-                <div className='w-2/3 rounded-3xl bg-[#F1F1F1] mt-20'>
+        <main className='bg-mainCheck bg-cover h-screen flex justify-center items-center'>
+            <div className='w-full flex flex-col items-center'>
+                <div className='w-2/3 rounded-md bg-[#F1F1F1] bg-opacity-80'>
                     <div className='my-10 flex flex-col w-3/4 mx-auto'>
-                        <div className='border-2 border-[#1454fb] bg-[#1454fb] rounded-md flex justify-between items-center'>
-                            <h1 className='text-white ml-5 py-1 font-bold text-xl'>상세 검색</h1>
+                        <div className='border-b-2 border-[#1454fb] flex justify-between items-center'>
+                            <h1 className='ml-5 py-1 font-bold text-xl'>상세 검색</h1>
                         </div>
-                        <div className='mt-5 flex justify-evenly items-center'>
-                            <div className='w-1/4 flex justify-evenly items-center'>
-                                <form className='py-1'>
-                                    <select
-                                        className='py-1 text-center rounded-md shadow-lg'
-                                        value={searchType}
-                                        onChange={handleSearchTypeChange}
-                                    >
-                                        <option value='company'>업체명</option>
-                                        <option value='item'>물품명</option>
-                                    </select>
-                                </form>
-                                <input
-                                    type='text'
-                                    className='w-1/2 py-1 text-center rounded-md shadow-lg'
-                                    value={searchQuery}
-                                    onChange={handleSearchQueryChange}
-                                    onKeyPress={handleKeyPress}
-                                />
+                        <div className='my-5 flex justify-between'>
+                            <div className='flex flex-col w-4/5  rounded-md shadow-md p-2'>
+                                <div className='py-1 flex items-center'>
+                                    <form className='w-1/3'>
+                                        <select
+                                            className='w-full text-center outline-none bg-inherit'
+                                            value={searchType}
+                                            onChange={handleSearchTypeChange}>
+                                            <option value='company'>업체명</option>
+                                            <option value='item'>물품명</option>
+                                        </select>
+                                    </form>
+                                    <input
+                                        type='text'
+                                        className='w-2/3 ms-5 text-center rounded-md outline-none'
+                                        value={searchQuery}
+                                        onChange={handleSearchQueryChange}
+                                        onKeyPress={handleKeyPress}/>
+                                </div>
+                                <div className='py-1 flex items-center'>
+                                    <div className='w-1/3'>
+                                        <div className='w-full text-center'>거래기간</div>
+                                    </div>
+                                    <div className='w-2/3 flex justify-between ms-5'>
+                                        <input
+                                            type='date'
+                                            className='w-2/5 text-center rounded-md'
+                                            value={startDate}
+                                            onChange={handleStartDateChange}/>
+                                        <div>~</div>
+                                        <input
+                                            type='date'
+                                            className='w-2/5 text-center rounded-md'
+                                            value={endDate}
+                                            onChange={handleEndDateChange}/>
+                                    </div>
+                                </div>
                             </div>
-                            <div className='flex w-1/2 justify-evenly items-center py-1 bg-[#1454fb]  rounded-lg shadow-md'>
-                                <h1 className='font-bold text-white'>거래 기간</h1>
-                                <input
-                                    type='date'
-                                    className='w-1/3 text-center rounded-md shadow-lg'
-                                    value={startDate}
-                                    onChange={handleStartDateChange}
-                                />
-                                <input
-                                    type='date'
-                                    className='w-1/3 text-center rounded-md shadow-lg'
-                                    value={endDate}
-                                    onChange={handleEndDateChange}
-                                />
+                            <div className='w-1/6 flex flex-col justify-center items-center'>
+                                <button
+                                    type="button"
+                                    className='w-5/6 bg-white text-[#1454fb] font-bold rounded-md border-2 border-[#1454FB] hover:bg-[#1454fb] hover:text-white'
+                                    onClick={handleSearch}>검색
+                                </button>
                             </div>
-                            <button
-                                type="button"
-                                className='w-1/6 bg-white text-[#1454fb] font-bold rounded-md py-1 border-2 border-[#1454FB] hover:bg-[#1454fb] hover:border-white hover:text-white'
-                                onClick={handleSearch}
-                            >
-                                검색
-                            </button>
                         </div>
-                        <div className='bg-white mt-5 rounded-md'>
+                        <div className='bg-white rounded-md'>
                             <table className='w-4/5 mx-auto mt-10'>
                                 <thead className='border-2 border-x-0 border-[#1454fb] text-xl'>
                                     <tr>
@@ -157,8 +159,7 @@ export default function Check() {
                                     {filterData && filterData.map((item, idx) => (
                                         <tr
                                             className='text-center border-b-2 border-slate-300 hover:bg-[#1454fb] hover:text-white'
-                                            key={idx}
-                                        >
+                                            key={idx}>
                                             <td className='w-3/5 py-1'>
                                                 <Link to={`/receipt/${item.receiptId}`} className="block w-full h-full">
                                                     {item.company}
@@ -182,8 +183,7 @@ export default function Check() {
                                     prevPageText={"‹"}
                                     nextPageText={"›"}
                                     onChange={handlePageChange}
-                                    totalPages={totalPages}
-                                />
+                                    totalPages={totalPages}/>
                             </div>
                         </div>
                     </div>

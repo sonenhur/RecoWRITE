@@ -10,7 +10,11 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'main': "url('./assets/images/main.png')"
+        'main': "url('./assets/images/main.png')",
+        'mainReco' : "url('./assets/images/mainReco.png')",
+        'mainPrint' : "url('./assets/images/mainPrint.png')",
+        'mainCheck' : "url('./assets/images/mainCheck.png')",
+        'mainDetail' : "url('./assets/images/mainDetail.png')"
       }
     },
   },

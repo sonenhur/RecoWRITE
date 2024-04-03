@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-
 
 import Nav from './Nav';
 import Home from './Home';
@@ -8,29 +8,38 @@ import Reco from './Reco';
 import Print from './Print';
 import Loading from './Loading';
 import Check from './Check';
-import Login from './Login';
-import Register from './Register';
 import Detail from './Detail';
+import Modal from './Modal';
 
 function App() {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
+  };
+
+  const closeLoginModal = () => {
+    setIsLoginModalOpen(false);
+  };
+
   return (
-    <BrowserRouter>
+    <Router>
       <RecoilRoot>
         <div className='relative w-full'>
-          <Nav />
+          <Nav openLoginModal={openLoginModal} />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/Reco' element={<Reco />} />
             <Route path='/Print' element={<Print />} />
             <Route path='/Loading' element={<Loading />} />
             <Route path='/Check' element={<Check />} />
-            <Route path='/Login' element={<Login />} />
-            <Route path='/Register' element={<Register />} />
             <Route path="/receipt/:receiptId" element={<Detail />} />
-          </Routes>       
+          </Routes>
         </div>
+        <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
+        </Modal>
       </RecoilRoot>
-    </BrowserRouter>
+    </Router>
   );
 }
 

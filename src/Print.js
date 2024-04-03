@@ -189,15 +189,14 @@ export default function Print() {
     console.log("Asdas", rd.content.body)
 
     return (
-        <main className='bg-main bg-cover h-screen relative'>
-            <div className='absolute w-full h-full bg-black opacity-30'></div>
-            <div className='relative z-10 flex flex-col items-center'>
-                <div className='w-2/3 h- rounded-3xl bg-[#F1F1F1] mt-20 mb-10'>
+        <main className='bg-mainPrint bg-cover h-screen flex justify-center items-center'>
+            <div className='w-full flex flex-col items-center'>
+                <div className='w-2/3 h- rounded-md bg-[#F1F1F1] bg-opacity-80'>
                     <div className='mt-10 flex justify-evenly'>
-                        <div className='w-1/3 '>
-                            <img className='rounded-lg mb-10' src={rd.content.body.image} ref={imageRef} alt="영수증 이미지" />
+                        <div className='w-1/3'>
+                            <img className='rounded-md mb-10' src={rd.content.body.image} ref={imageRef} alt="영수증 이미지" />
                         </div>
-                        <div className='w-3/5 flex flex-col pb-10 mb-10 bg-white rounded-lg'>
+                        <div className='w-3/5 flex flex-col pb-10 mb-10 bg-white rounded-md'>
                             <div className='w-11/12 mx-auto flex justify-between mt-5'>
                                 <div className='w-1/4 flex justify-between'>
                                     <button type="button" onClick={handleplus} className={rowbut}>행 추가</button>
@@ -210,25 +209,25 @@ export default function Print() {
                             </div>
                             <div className='w-11/12 mx-auto'>
                                 <div className='flex mt-5 justify-between'>
-                                    <div className='bg-[#1454fb] text-white w-2/5 py-1 flex items-center rounded-lg shadow-md justify-evenly'>
+                                    <div className='bg-[#1454fb] text-white w-2/5 py-1 flex items-center rounded-md shadow-md justify-evenly'>
                                         거래일
-                                        <div className='bg-white text-black w-2/3 text-center rounded-lg'>
-                                            <input type="date" className="w-full text-center rounded-lg"
+                                        <div className='bg-white text-black w-2/3 text-center rounded-md'>
+                                            <input type="date" className="w-full text-center rounded-md"
                                                 defaultValue={rd.content.body.tradeAt} ref={tradeAtRef} />
                                         </div>
                                     </div>
-                                    <div className='bg-[#1454fb] text-white w-2/5 py-1 flex items-center rounded-lg shadow-md justify-evenly'>
+                                    <div className='bg-[#1454fb] text-white w-2/5 py-1 flex items-center rounded-md shadow-md justify-evenly'>
                                         업체명
-                                        <div className='bg-white text-black w-2/3 text-center rounded-lg'>
-                                            <input type="text" className="w-full text-center rounded-lg"
+                                        <div className='bg-white text-black w-2/3 text-center rounded-md'>
+                                            <input type="text" className="w-full text-center rounded-md"
                                                 defaultValue={rd.content.body.company} ref={companyRef} />
                                         </div>
                                     </div>
                                 </div>
-                                <table className='w-full mt-5 bg-[#1454fb] rounded-lg'>
+                                <table className='w-full mt-5 bg-[#1454fb] rounded-md'>
                                     <thead className='bg-[#1454fb] text-white'>
                                         <tr>
-                                            <th scope='col' className='w-1/2 py-2 rounded-ss-lg'>
+                                            <th scope='col' className='w-1/2 py-2 rounded-ss-md'>
                                                 물품
                                             </th>
                                             <th scope='col' className='py-2'>
@@ -237,7 +236,7 @@ export default function Print() {
                                             <th scope='col' className='w-1/12 py-2'>
                                                 수량
                                             </th>
-                                            <th scope='col' className='py-2 rounded-se-lg'>
+                                            <th scope='col' className='py-2 rounded-se-md'>
                                                 가격
                                             </th>
                                         </tr>
@@ -265,12 +264,12 @@ export default function Print() {
                                         )}
                                     </tbody>
                                 </table>
-                                <div className='w-full bg-[#1454fb] text-white py-1 flex items-center rounded-b-lg shadow-md justify-end'>
+                                <div className='w-full bg-[#1454fb] text-white py-1 flex items-center rounded-b-md shadow-md justify-end'>
                                     <div className='flex justify-evenly'>
                                         <h1>총액</h1>
-                                        <div className='bg-white text-black w-1/2 text-center rounded-lg'>
+                                        <div className='text-black w-1/2 rounded-md'>
                                             <input type="text" defaultValue={(rd.content.body.sum ? rd.content.body.sum.toLocaleString('ko-KR') : 0)}
-                                                ref={sumRef} className="w-full text-center rounded-lg" onChange={numberInput} />
+                                                ref={sumRef} className="w-full text-center rounded-md" onChange={numberInput} />
                                         </div>
                                     </div>
                                 </div>

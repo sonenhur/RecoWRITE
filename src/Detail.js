@@ -131,36 +131,37 @@ export default function Detail() {
     }
 
     return (
-        <main className='bg-main bg-cover h-screen relative'>
-            <div className='absolute w-full h-full bg-black opacity-30'></div>
-            <div className='flex flex-col items-center'>
-                <div className='relative z-10 w-2/3 rounded-3xl bg-[#F1F1F1] mt-20'>
+        <main className='bg-mainDetail bg-cover h-screen flex justify-center items-center'>
+            <div className='w-full flex flex-col items-center'>
+                <div className='w-2/3 rounded-md bg-[#F1F1F1] bg-opacity-80'>
                     <div className='my-10 flex flex-col w-3/4 mx-auto'>
-                        <div className='border-2 border-[#1454fb] bg-[#1454fb] rounded-md flex justify-between items-center'>
-                            <h1 className='text-white ml-5 py-1 font-bold text-xl'>상세 정보</h1>
+                        <div className='border-b-2 border-[#1454fb] flex justify-between items-center'>
+                            <h1 className='ml-5 py-1 font-bold text-xl'>상세 정보</h1>
                         </div>
-                        <div className='mt-5 flex justify-evenly'>
-                            <div className='bg-[#1454fb] text-white w-1/4 py-1 flex items-center rounded-lg shadow-md justify-evenly'>
-                                업체명
-                                <div className='bg-white text-black w-2/3 text-center rounded-lg'>
-                                    <h1 className="w-full text-center rounded-lg">
-                                        {detail && detail.content && detail.content.company}
-                                    </h1>
+                        <div className='my-5 flex justify-between'>
+                            <div className='flex w-2/3 justify-between'>
+                                <div className='bg-[#1454fb] text-white w-2/5 py-1 flex items-center rounded-md shadow-md justify-evenly'>
+                                    업체명
+                                    <div className='bg-white text-black w-2/3 text-center rounded-md'>
+                                        <h1 className="w-full text-center rounded-md">
+                                            {detail && detail.content && detail.content.company}
+                                        </h1>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className='bg-[#1454fb] text-white w-1/3 py-1 flex items-center rounded-lg shadow-md justify-evenly'>
-                                거래 기간
-                                <div className='bg-white text-black w-2/3 text-center rounded-lg'>
-                                    <h1 className="w-full text-center rounded-lg">
-                                        {detail && detail.content && detail.content.tradAt}
-                                    </h1>
+                                <div className='bg-[#1454fb] text-white w-1/2 py-1 flex items-center rounded-md shadow-md justify-evenly'>
+                                    거래 기간
+                                    <div className='bg-white text-black w-2/3 text-center rounded-md'>
+                                        <h1 className="w-full text-center rounded-md">
+                                            {detail && detail.content && detail.content.tradAt}
+                                        </h1>
+                                    </div>
                                 </div>
                             </div>
                             <button type="button" onClick={downloadExcel} className='w-1/6 bg-white text-[#1454fb] font-bold rounded-md py-1 border-2 border-[#1454FB] hover:bg-[#1454fb] hover:border-white hover:text-white'>
                                 다운로드
                             </button>
                         </div>
-                        <div className='bg-white mt-5 rounded-md'>
+                        <div className='bg-white rounded-md'>
                             <table className='w-4/5 mx-auto mt-10'>
                                 <thead>
                                     <tr className='border-2 border-x-0 border-[#1454fb]'>
