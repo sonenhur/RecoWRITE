@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# 수기 영수증 텍스트 데이터 추출 분석
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 개요
 
-## Available Scripts
+### 1.1 프로젝트 추진 배경
+- 수기 영수증 처리로 인해 대량 데이터 관리에 어려움이 있으며, 이를 디지털 텍스트로 변환하여 업무 효율성을 높이고자 함.
 
-In the project directory, you can run:
+### 1.2 수요 기업 소개
+- **나인온스(9OZ)**: 온/오프라인 의류 패션 매장을 운영하며, 인쇄 및 수기 영수증 처리 문제 해결이 필요함.
 
-### `npm start`
+### 1.3 필요성
+- 대량의 수기 영수증을 디지털화하여 데이터 관리 및 활용의 효율성 향상 필요.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1.4 목적
+- 문자 인식 기술을 활용하여 영수증 데이터를 추출 및 DB에 저장.
+- 거래 업체 분석 및 검색 업무의 효율성 증대.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 프로젝트 문제 설명
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2.1 프로젝트 문제 기술
+1. **영수증 처리 방식**: 도매 거래 시, 수기 및 인쇄 영수증 혼재.
+2. **영수증 분실 문제**: 거래 내역 확인 불가로 서비스 문제 발생.
+3. **데이터화 제약**: 거래 내역 통합 분석 어려움.
 
-### `npm run build`
+### 2.2 데이터셋 현황
+1. **나인온스 & 부산 C&S 제공 영수증 63장**:
+   - 거래 업체 정보 (날짜, 연락처, 계좌번호 등).
+   - 품목, 단가, 수량, 금액, 총액 정보.
+2. **편집 이미지 1,548장**: 영수증 개별 단어 분리.
+3. **AIHub 데이터**:
+   - 필기체 글자 344,412건.
+   - 필기체 단어 756,813건.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 시스템 설계 내용
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3.1 서비스 요구 사항
+- 수기 영수증에서 `-` 항목을 `,000`으로 인식.
 
-### `npm run eject`
+### 3.2 데이터 분석 요구 사항
+1. 인쇄체와 필기체 구분.
+2. 한국어, 영어, 숫자 구분.
+3. 다양한 필체 인식.
+4. 양식을 벗어난 글자 인식.
+5. **OCR 및 YOLO** 활용: 필기체 텍스트 인식.
+6. 인식된 텍스트 DB 저장.
+7. DB 저장 데이터 검색 및 분석 제공.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 팀 구성원별 작업 내용
+- **FE**: 문형호
+- **BE**: 이지연
+- **DA**: 허선행
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 추진 일정 경과
+- **2024-02-28 ~ 2024-04-04**
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 아쉬운 점
+1. 회원 가입 시 인증 방식 미흡.
+2. 영수증 업로드 및 수정 시 회원 간 알림 기능 부재.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 개선 사항
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### FE
+1. OAuth 로그인 기능 이해 부족.
+2. 반응형 페이지 미완성.
+3. 컴포넌트 재사용성 미흡.
 
-### Analyzing the Bundle Size
+### BE
+1. OAuth 로그인 연결 부족.
+2. N+1 문제 미해결.
+3. 테스트 코드 미완성.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### DA
+1. 손글씨 모델 완성도 부족.
+2. 다양한 모델 시도.
+3. 학습 데이터 부족.
+4. 학습 미흡.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 참고 자료
+- 프로젝트 관련 참고 자료 목록 (작성 시 추가).
