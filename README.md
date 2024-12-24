@@ -96,3 +96,4 @@
 
 ## 참고 자료
 - 프로젝트 관련 참고 자료 목록 (작성 시 추가).
+![참고자료](https://github.com/user-attachments/assets/ed598933-1e2e-46bd-af94-f453dc549740)
