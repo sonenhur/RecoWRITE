@@ -59,6 +59,7 @@
 - **FE**: 문형호
 - **BE**: 이지연
 - **DA**: 허선행
+![담당내용](https://github.com/user-attachments/assets/c69c615b-923b-4834-ae7f-d96571efa84d)
 
 ---
 
