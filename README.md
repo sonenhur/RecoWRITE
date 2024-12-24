@@ -32,6 +32,7 @@
 3. **AIHub 데이터**:
    - 필기체 글자 344,412건.
    - 필기체 단어 756,813건.
+![image](https://github.com/user-attachments/assets/7b8d7a13-c85d-4a8c-a9a8-944d910edf7f)
 
 ---
 
