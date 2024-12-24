@@ -40,10 +40,10 @@
 
 ### 3.1 서비스 요구 사항
 - 수기 영수증에서 `-` 항목을 `,000`으로 인식.
-<img src="/https://github.com/user-attachments/assets/365b9d1e-39df-404f-9ac3-0c8c9d0b4466" width="700">
-![마시멜로](https://github.com/user-attachments/assets/365b9d1e-39df-404f-9ac3-0c8c9d0b4466)
-![뀨크](https://github.com/user-attachments/assets/e27f9cd9-d191-4cc6-b2d0-d33990c65f7d)
-![제이](https://github.com/user-attachments/assets/453f0378-bf98-4eda-9b5f-4dd2adf02829)
+<img src="https://github.com/user-attachments/assets/365b9d1e-39df-404f-9ac3-0c8c9d0b4466" width="300">
+<img src="https://github.com/user-attachments/assets/e27f9cd9-d191-4cc6-b2d0-d33990c65f7d" width="300">
+<img src="https://github.com/user-attachments/assets/453f0378-bf98-4eda-9b5f-4dd2adf02829" width="300">
+
 ### 3.2 데이터 분석 요구 사항
 1. 인쇄체와 필기체 구분.
 2. 한국어, 영어, 숫자 구분.
