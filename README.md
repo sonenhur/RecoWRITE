@@ -65,7 +65,7 @@
 
 ## 추진 일정 경과
 - **2024-02-28 ~ 2024-04-04**
-
+![세부 일정](https://github.com/user-attachments/assets/093dba05-0191-42a4-8caa-b9ad1b6d43ee)
 ---
 
 ## 아쉬운 점
